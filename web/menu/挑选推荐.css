@@ -1,0 +1,60 @@
+﻿#container
+{
+    background-color: rgb(220,239,249);
+}
+#header{
+    position: relative;
+    z-index: 10000;
+}
+/* 设置图片的大小、阴影等 */
+.img-cs{
+    width:700px;
+    height:500px;
+    float:left;
+    margin-left:20px;
+    margin-bottom: 20px;
+    margin-top: 50px;
+    border-radius: 8px;
+}
+/* 鼠标悬停在图片上放大图片 */
+img:hover {
+    animation: move .5s linear forwards;
+}
+@keyframes move {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.1);
+    }
+}
+.image-container {
+    position: relative; /* 设置为相对定位，以便内部绝对定位的元素可以相对于它定位 */
+    display: inline-block; /* 使容器根据内容自适应宽度，并允许并排显示 */
+    margin-right: 20px; /* 如果需要的话，添加一些间距 */
+}
+
+.image-container img {
+    display: block; /* 确保图片下方没有额外的空间 */
+}
+
+.image-container .description {
+    position: absolute; /* 绝对定位，相对于最近的已定位祖先元素（在此例中是.image-container） */
+    top: 0; /* 根据需要调整位置 */
+    right: -100px; /* 初始时隐藏在图片右侧，你可以根据需要调整这个值 */
+    width: 720px; /* 根据需要设置说明文字的宽度 */
+    height:520px;
+    background-color: rgba(0, 0, 0, 0.521); /* 设置背景色，以便在图片上可见 */
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    opacity: 0; /* 初始时隐藏 */
+    transition: opacity 0.3s ease-in-out; /* 添加过渡效果 */
+    pointer-events: none; /* 防止说明文字捕获鼠标事件 */
+}
+
+.image-container:hover .description {
+    opacity: 1; /* 悬停时显示说明文字 */
+    right: 0; /* 将说明文字移动到图片旁边 */
+}
